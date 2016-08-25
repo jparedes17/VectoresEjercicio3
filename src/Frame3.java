@@ -65,6 +65,12 @@ public class Frame3 extends javax.swing.JFrame {
 
         jLabel1.setText("Longitud de Vectores:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        txtLongitud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLongitudKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 80, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 240, 60));
@@ -133,6 +139,7 @@ public class Frame3 extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vector1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtResultadoVector1.setEditable(false);
         txtResultadoVector1.setColumns(20);
         txtResultadoVector1.setRows(5);
         jScrollPane1.setViewportView(txtResultadoVector1);
@@ -144,6 +151,7 @@ public class Frame3 extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vector 2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtResultadoVector2.setEditable(false);
         txtResultadoVector2.setColumns(20);
         txtResultadoVector2.setRows(5);
         jScrollPane2.setViewportView(txtResultadoVector2);
@@ -155,6 +163,7 @@ public class Frame3 extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vector Resultante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtVectorResultante.setEditable(false);
         txtVectorResultante.setColumns(20);
         txtVectorResultante.setRows(5);
         jScrollPane3.setViewportView(txtVectorResultante);
@@ -173,13 +182,21 @@ public class Frame3 extends javax.swing.JFrame {
         int longitud;
         if (txtLongitud.getText().trim().isEmpty())
         {
-            JOptionPane.show
+            JOptionPane.showMessageDialog(this, "Ingrese la Longitud", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        else if(Integer.parseInt(txtLongitud.getText().trim())==0)
+        {
+            JOptionPane.showMessageDialog(this, "La Longitud no puede ser cero", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtLongitud.requestFocusInWindow();
+            txtLongitud.selectAll();
+        }
+        else {
         longitud = Integer.parseInt(txtLongitud.getText().trim());
         v= new double [longitud];
         v2= new double [longitud];
         r= new double [longitud];
         JOptionPane.showMessageDialog(this, "Vectores creados Correctamente");
+        }
     }//GEN-LAST:event_cmbCrearActionPerformed
 
     private void cmbLlenadoManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLlenadoManualActionPerformed
@@ -259,6 +276,15 @@ public class Frame3 extends javax.swing.JFrame {
         r=null;
         v2=null;
     }//GEN-LAST:event_cmbBorrarActionPerformed
+
+    private void txtLongitudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongitudKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume(); 
+          } 
+    }//GEN-LAST:event_txtLongitudKeyTyped
 
     /**
      * @param args the command line arguments
