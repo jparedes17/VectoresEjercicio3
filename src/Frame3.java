@@ -134,7 +134,7 @@ public class Frame3 extends javax.swing.JFrame {
         });
         jPanel3.add(cmbResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 110, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 150, 240));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 150, 240));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vector1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -249,7 +249,7 @@ public class Frame3 extends javax.swing.JFrame {
         for (int i = 0; i < v.length; i++) 
         {   
             r[i]=  v[i] + v2[i];
-       txtVectorResultante.append(r[i]+"\n");
+       txtVectorResultante.append("La suma es:"+r[i]+"\n");
         }
     }//GEN-LAST:event_cmbSumaActionPerformed
 
@@ -259,7 +259,7 @@ public class Frame3 extends javax.swing.JFrame {
         for (int i = 0; i < v.length; i++) 
         {   
             r[i]=  v[i] - v2[i];
-         txtVectorResultante.append(r[i]+"\n");
+         txtVectorResultante.append("La resta es:"+r[i]+"\n");
 
         }
     }//GEN-LAST:event_cmbRestaActionPerformed
